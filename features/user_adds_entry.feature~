@@ -1,0 +1,12 @@
+Feature: User adds income and expense entries
+  As I user
+  I want to add income and expenses
+  So that I can track my income and expenses
+
+  Scenario: Add first income entry
+    Given I have no entries
+    When I visit the home page
+    And I fill in "Entry" with "March Income 1000"
+    And I click "Submit"
+    Then I should see that I have "1" income line
+    And I should see that I have "1000.00" total

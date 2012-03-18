@@ -1,0 +1,23 @@
+%h1 Income/Expenses
+-if @entries.empty?
+  %p No entries
+-else
+  %table
+    %tr
+      %th When
+      %th What
+      %th How much
+    -@entries.each do |e|
+      %tr
+        %td=e.created_at
+        %td=e.title
+        %td=number_to_currency(e.amount)
+  %p
+    Total
+    ="1000.00"
+=form_for @entry do |f|
+  %ul
+    %li
+      =f.label :entry
+      =f.text_field :entry
+  =f.submit "Submit"
